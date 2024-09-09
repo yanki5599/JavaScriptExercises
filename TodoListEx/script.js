@@ -1,4 +1,4 @@
-todos = [
+let todos = [
   {
     id: "abc",
     todo: "read a book",
@@ -7,16 +7,22 @@ todos = [
 ];
 
 function generateId() {
-  return Math.random().toString(16).slice(2);
+  return Math.random().toString(16).slice(2) + Date.now().toString();
 }
 
-const addTodoBtn = document.getElementById("addTodoBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const addTodoBtn = document.getElementById("addTodoBtn");
 
-addTodoBtn.addEventListener("click", () => {
-  const inputVal = document.getElementById("todo-input").value;
-  if (inputVal.trim() != "") {
-    addTodo(generateId(), inputVal, false);
-  }
+  addTodoBtn.addEventListener("click", () => {
+    const input = document.getElementById("todo-input");
+    const inputVal = input.value;
+    if (inputVal.trim() != "") {
+      addTodo(generateId(), inputVal, false);
+    }
+    input.value = "";
+  });
+  readFromLocal();
+  refreshVisual();
 });
 
 function saveToLocal() {
@@ -40,7 +46,7 @@ function refreshVisual() {
   const table = document.getElementsByTagName("table")[0];
   //copy headers of table
   const headers = document.createElement("tr");
-  headers.innerHTML = table.firstElementChild().innerHTML;
+  headers.innerHTML = table.firstElementChild.innerHTML;
 
   table.innerHTML = "";
   table.append(headers);
@@ -61,13 +67,13 @@ function addToVisual(todo) {
 
   const todoTd = document.createElement("td");
   todoTd.textContent = todo.todo;
-
+  if (todo.status) todoTd.style.textDecoration = "line-through";
   const statusTd = document.createElement("td");
   statusTd.textContent = todo.status ? "Done" : "Active";
-
+  if (todo.status) statusTd.style.color = "green";
   const actionsTd = document.createElement("td");
 
-  const [changeStatusBtn, editBtn, deleteBtn] = createBtns();
+  const [changeStatusBtn, editBtn, deleteBtn] = createBtns(todo.status);
   addListenersBtns(changeStatusBtn, editBtn, deleteBtn, todo.id);
   actionsTd.append(changeStatusBtn, editBtn, deleteBtn);
 
@@ -75,11 +81,15 @@ function addToVisual(todo) {
   table.append(newTr);
 }
 
-function createBtns() {
+function createBtns(status = false) {
   const changeStatusBtn = document.createElement("button");
-  changeStatusBtn.textContent = "done todo";
+  changeStatusBtn.textContent = "Mark as Done";
+
+  changeStatusBtn.disabled = status;
+
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit todo";
+
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete todo";
 

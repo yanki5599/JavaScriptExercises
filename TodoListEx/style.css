@@ -1,3 +1,79 @@
-tr {
-  border: 2px solid black;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  text-align: center;
+  margin-top: 50px;
+  /* width: 100%; */
+}
+
+#Title {
+  margin: 15px 0 10px 0;
+  font-size: 3rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#inputWrapper {
+  box-shadow: 2px 2px 8px 2px black;
+  padding: 20px;
+  width: 30%;
+  display: inline-block;
+  margin: 15px;
+  border-radius: 8px;
+  > * {
+    font-family: "Courier New", Courier, monospace;
+  }
+}
+
+#inputWrapper > input {
+  font-size: 18px;
+  border: 2px solid #a2a2a2;
+  border-radius: 8px;
+  padding: 4px;
+  margin: 10px;
+  width: 80%;
+}
+
+#inputWrapper > button {
+  font-size: 18px;
+  border: 2px solid #a2a2a2;
+  border-radius: 8px;
+  padding: 4px 15px;
+  margin: 10px;
+  max-width: 60%;
+  overflow: hidden;
+}
+
+#tableWrapper {
+  margin-top: 50px;
+}
+
+#tableWrapper > table {
+  display: inline-block;
+  padding: 20px;
+  box-shadow: 2px 2px 8px 2px rgb(166, 166, 166);
+  border-radius: 8px;
+}
+
+th {
+  font-size: 28px;
+}
+
+td {
+  font-size: 22px;
+  min-width: 100px;
+  padding: 10px;
+}
+
+tr > * {
+  padding: 10px;
+}
+
+td > button {
+  margin: 0 15px;
+  font-size: 18px;
+  padding: 8px;
 }
