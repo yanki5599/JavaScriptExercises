@@ -70,6 +70,8 @@ main {
   padding: 20px;
   box-shadow: 2px 2px 8px 2px rgb(166, 166, 166);
   border-radius: 8px;
+  max-width: 80%;
+  overflow: auto;
 }
 
 th {
