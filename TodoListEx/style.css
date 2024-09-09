@@ -77,3 +77,9 @@ td > button {
   font-size: 18px;
   padding: 8px;
 }
+
+.fa-sort-up:hover,
+.fa-sort-down:hover {
+  color: rgb(127, 127, 127);
+  cursor: pointer;
+}

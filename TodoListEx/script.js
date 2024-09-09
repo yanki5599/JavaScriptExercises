@@ -21,9 +21,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     input.value = "";
   });
+
+  addSortBtnEL();
   readFromLocal();
   refreshVisual();
 });
+
+function addSortBtnEL() {
+  const sortUp = document.querySelector("#sort-up");
+  const sortDown = document.querySelector("#sort-down");
+
+  console.log("add sort btn el");
+
+  if (sortUp) {
+    sortUp.addEventListener("click", () => {
+      todos.sort((a, b) => a.todo.localeCompare(b.todo));
+      refreshVisual();
+    });
+  }
+
+  if (sortDown) {
+    sortDown.addEventListener("click", () => {
+      todos.sort((a, b) => b.todo.localeCompare(a.todo));
+      refreshVisual();
+    });
+  }
+}
 
 function saveToLocal() {
   localStorage.setItem("todos", JSON.stringify(todos));
@@ -54,6 +77,8 @@ function refreshVisual() {
   todos.forEach((element) => {
     addToVisual(element);
   });
+
+  addSortBtnEL();
 }
 
 function addToVisual(todo) {
