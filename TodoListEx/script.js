@@ -51,7 +51,7 @@ function saveToLocal() {
 }
 
 function readFromLocal() {
-  todos = JSON.parse(localStorage.getItem("todos"));
+  todos = JSON.parse(localStorage.getItem("todos")) || [];
 }
 
 function addTodo(id, todo, status) {
@@ -104,14 +104,16 @@ function addToVisual(todo) {
 function createBtns(status = false) {
   const changeStatusBtn = document.createElement("button");
   changeStatusBtn.textContent = "Mark as Done";
-
+  changeStatusBtn.classList.add("actionBtn", "greenHover");
   changeStatusBtn.disabled = status;
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit todo";
+  editBtn.classList.add("actionBtn");
 
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete todo";
+  deleteBtn.classList.add("actionBtn", "redHover");
 
   return [changeStatusBtn, editBtn, deleteBtn];
 }

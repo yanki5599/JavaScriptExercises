@@ -58,10 +58,6 @@ main {
 #sort-icons {
   display: flex;
   flex-direction: column;
-  > i {
-    padding: 0;
-    margin: 0;
-  }
 }
 #todo-header {
   display: flex;
@@ -100,4 +96,26 @@ td > button {
 .fa-sort-down:hover {
   color: rgb(127, 127, 127);
   cursor: pointer;
+}
+
+.actionBtn {
+  transition: border-radius 0.5s;
+  background-color: rgba(254, 255, 255, 0.137);
+}
+
+.actionBtn:hover:enabled {
+  background-color: rgba(15, 132, 161, 0.588);
+  transition: background-color 0.5s;
+  border-radius: 18px;
+  transition: border-radius 0.5s;
+}
+
+.redHover:hover:enabled {
+  transition: border-radius 0.5s;
+  background-color: rgba(161, 15, 15, 0.588);
+}
+
+.greenHover:hover:enabled {
+  transition: border-radius 0.5s;
+  background-color: rgba(25, 161, 15, 0.588);
 }
