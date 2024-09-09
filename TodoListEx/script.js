@@ -31,8 +31,6 @@ function addSortBtnEL() {
   const sortUp = document.querySelector("#sort-up");
   const sortDown = document.querySelector("#sort-down");
 
-  console.log("add sort btn el");
-
   if (sortUp) {
     sortUp.addEventListener("click", () => {
       todos.sort((a, b) => a.todo.localeCompare(b.todo));
@@ -68,8 +66,7 @@ function addTodo(id, todo, status) {
 function refreshVisual() {
   const table = document.getElementsByTagName("table")[0];
   //copy headers of table
-  const headers = document.createElement("tr");
-  headers.innerHTML = table.firstElementChild.innerHTML;
+  const headers = table.firstElementChild;
 
   table.innerHTML = "";
   table.append(headers);
@@ -77,8 +74,6 @@ function refreshVisual() {
   todos.forEach((element) => {
     addToVisual(element);
   });
-
-  addSortBtnEL();
 }
 
 function addToVisual(todo) {
