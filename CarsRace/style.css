@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #a7e6ff70;
+}
+
+#raceSetterWrapper {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+#raceSetter {
+  /* border: 1px solid black; */
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px 2px #1b567173;
+  padding: 25px 35px;
+  background-color: #3abcf91f;
+  font-size: 24px;
+  h1 {
+    font-size: 36px;
+    margin: 20px;
+  }
+  button {
+    font-size: 22px;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    background-color: #3573ef6b;
+    box-shadow: 1px 1px 8px 2px transparent;
+  }
+  button:hover {
+    box-shadow: 1px 1px 8px 2px rgb(109, 160, 214);
+    background-color: #050d9c71;
+  }
+  button:active {
+    box-shadow: 1px 1px 8px 2px rgb(255, 255, 255);
+  }
+  input {
+    border-radius: 6px;
+    padding: 6px 10px;
+    border: none;
+    font-size: 18px;
+  }
+  text-align: center;
+}
+#carsTracks {
+  margin: 80px;
+  /* width: 100%; */
+}
+#tracks {
+  width: 100%;
+}
+.track {
+  height: 120px;
+  width: 100%;
+  border: 5px solid #0fabfff7;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.finish-line {
+  width: 10px;
+  background-color: red;
+  height: 100%;
+  position: absolute;
+  right: 20px;
+  border: none;
+}
+
+.car {
+  width: 200px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 0px;
+}
+
+#raceResaults {
+  text-align: center;
+
+  ul {
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(243, 229, 78, 0.508);
+    color: black;
+  }
+  button:hover {
+    background-color: rgb(243, 229, 78);
+    box-shadow: 1px 1px 8px 2px rgb(170, 211, 255);
+  }
+  button:active {
+    box-shadow: 1px 1px 8px 2px rgb(255, 255, 255);
+  }
+}

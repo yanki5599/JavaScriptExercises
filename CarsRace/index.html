@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section dir="rtl" id="raceSetterWrapper">
+        <div id="raceSetter">
+          <h1>מירוץ מכוניות</h1>
+          <button id="startRace">התחל מירוץ</button>
+          <label for="carAmountInput"
+            >הכנס מספר מתחרים: (2-4)
+            <input
+              type="number"
+              name="carAmount"
+              id="carAmountInput"
+              min="2"
+              max="4"
+          /></label>
+        </div>
+      </section>
+      <section id="carsTracks">
+        <div id="tracks">
+          <!-- <div class="track">
+            <div class="car"></div>
+            <div class="finish-line"></div>
+          </div>
+        </div> -->
+      </section>
+      <section dir="rtl" id="raceResaults">
+        <ul>
+          <li>מקום 1 ,זמן 7.31 שניות, - Racer 2</li>
+        </ul>
+        <button id="restartRace">אפס מירוץ</button>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
