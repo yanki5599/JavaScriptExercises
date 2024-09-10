@@ -51,6 +51,10 @@ main {
   overflow: hidden;
 }
 
+#addTodoBtn:hover {
+  background-color: #a2a2a2;
+}
+
 #tableWrapper {
   margin-top: 50px;
 }
@@ -101,6 +105,7 @@ td > button {
 }
 
 .actionBtn {
+  margin: 5px;
   transition: border-radius 0.5s;
   background-color: rgba(254, 255, 255, 0.137);
 }

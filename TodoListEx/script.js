@@ -124,6 +124,7 @@ function addListenersBtns(changeStatusBtn, editBtn, deleteBtn, id) {
     saveToLocal();
     refreshVisual();
   });
+
   editBtn.addEventListener("click", () => {
     const input = document.getElementById("todo-input").value;
     if (input.trim() != "") {
