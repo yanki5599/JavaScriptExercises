@@ -10,47 +10,6 @@ function incrementStyleSidePx(numPx, inc) {
   return +numPx.slice(0, -2) + inc + "px";
 }
 
-//////////////////////
-function getDisplayedBackgroundImageWidth(element) {
-  return new Promise((resolve, reject) => {
-    const computedStyle = getComputedStyle(element);
-    const backgroundImageUrl = computedStyle.backgroundImage.slice(5, -2); // Extract URL from 'url("...")'
-
-    if (!backgroundImageUrl || backgroundImageUrl === "none") {
-      reject(new Error("Background image URL not found or image is not set"));
-      return;
-    }
-
-    const img = new Image();
-    img.onload = function () {
-      const originalWidth = this.width;
-      const originalHeight = this.height;
-      const containerWidth = element.clientWidth;
-      const containerHeight = element.clientHeight;
-      const imageAspectRatio = originalWidth / originalHeight;
-
-      let displayedWidth;
-
-      // Calculate displayed width based on aspect ratio and container size
-      if (containerWidth / containerHeight > imageAspectRatio) {
-        // Container is taller relative to its width
-        displayedWidth = containerHeight * imageAspectRatio;
-      } else {
-        // Container is wider relative to its height
-        displayedWidth = containerWidth;
-      }
-
-      resolve(displayedWidth);
-    };
-
-    img.onerror = function () {
-      reject(new Error("Failed to load the background image"));
-    };
-
-    img.src = backgroundImageUrl;
-  });
-}
-//////////////////////
 class Car {
   constructor(racerName, imageIdx = 1) {
     if (![...Array(CARSMAX).keys()].includes(imageIdx - 1))
@@ -114,12 +73,25 @@ document.addEventListener("DOMContentLoaded", () => {
   setListener(resetAppBtn, "click", resetApp);
 });
 
+function validateInput(input) {
+  if (!input || !isCarsAmountInRange(input))
+    return `cars amount out of range [${CARSMIN}-${CARSMAX}]`;
+
+  if (input % 1 != 0) return "cars amount should be integer";
+
+  return "";
+}
+
+const isCarsAmountInRange = (amount) =>
+  +amount >= CARSMIN && +amount <= CARSMAX;
+
 function Start() {
   const howManyCarsInput = document.getElementById("carAmountInput");
   const carsAmountVal = howManyCarsInput.value;
 
-  if (!carsAmountVal || +carsAmountVal < CARSMIN || +carsAmountVal > CARSMAX) {
-    alert(`cars amount out of range [${CARSMIN}-${CARSMAX}]`);
+  const errors = validateInput(carsAmountVal);
+  if (errors) {
+    alert(errors);
     return;
   }
 
@@ -185,7 +157,7 @@ function AreAllFinished() {
 }
 
 function raceFinished() {
-  clearInterval(app.checker); // stop checker
+  clearInterval(app.checker); // stop checker if race finished
 
   let WinnersInOrder = calculateWinnersOrder();
 

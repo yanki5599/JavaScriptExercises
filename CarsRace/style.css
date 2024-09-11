@@ -116,3 +116,7 @@ body {
 #resetRace {
   visibility: hidden;
 }
+
+#raceResaults ul li {
+  margin: 20px;
+}
