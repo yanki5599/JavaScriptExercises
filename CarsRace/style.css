@@ -76,6 +76,7 @@ body {
   position: absolute;
   right: 20px;
   border: none;
+  z-index: -1;
 }
 
 .car {
@@ -110,4 +111,8 @@ body {
   button:active {
     box-shadow: 1px 1px 8px 2px rgb(255, 255, 255);
   }
+}
+
+#resetRace {
+  visibility: hidden;
 }

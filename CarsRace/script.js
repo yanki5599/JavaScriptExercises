@@ -66,7 +66,7 @@ class Car {
     //   .catch((error) => console.error(error));
   }
   async StartDriving() {
-    this.startTime = Date.now();
+    this.startTime = new Date();
     this.timer = setInterval(() => this.#Drive(), INTERVAL_MS);
   }
   #Drive() {
@@ -79,15 +79,21 @@ class Car {
     const currentLeft = +this.element.style.left.slice(0, -2);
     const containerWidth = this.element.parentElement.clientWidth;
     const elementWidth = this.element.offsetWidth;
+    const finishLineRight = window.getComputedStyle(
+      this.element.parentElement.lastElementChild
+    ).right;
 
-    if (currentLeft + elementWidth >= containerWidth) {
-      console.log("dw:  " + this.displayedImageWidth);
+    if (
+      currentLeft + elementWidth >=
+      containerWidth - parseInt(finishLineRight)
+    ) {
       this.Stop();
+      console.log();
     }
   }
   Stop() {
     clearInterval(this.timer);
-    this.endTime = Date.now();
+    this.endTime = new Date();
   }
   randomStep() {
     return Math.random() * (MAX_STEP - MIN_STEP) + MIN_STEP;
@@ -102,8 +108,10 @@ function setListener(element, trigger, func, ...args) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const startRaceBtn = document.getElementById("startRace");
+  const resetAppBtn = document.getElementById("resetRace");
 
   setListener(startRaceBtn, "click", Start);
+  setListener(resetAppBtn, "click", resetApp);
 });
 
 function Start() {
@@ -135,6 +143,10 @@ function resetApp() {
   tracksElement.replaceChildren();
   app.running = false;
   app.tracks = [];
+
+  let list = document.querySelector("#raceResaults > ul");
+  list.replaceChildren();
+  resetButtonVisible(false);
 }
 
 function setUpRaceTracks(amount) {
@@ -173,10 +185,43 @@ function AreAllFinished() {
 }
 
 function raceFinished() {
+  clearInterval(app.checker); // stop checker
+
+  let WinnersInOrder = calculateWinnersOrder();
+
+  showResaults(WinnersInOrder);
+
+  resetButtonVisible(true);
+}
+
+function calculateWinnersOrder() {
+  return app.tracks
+    .map((t, idx) => {
+      return {
+        carName: t.car.name,
+        idx,
+        time: calculateDrivingTime(t.car.startTime, t.car.endTime),
+      };
+    })
+    .sort((c1, c2) => c1.time - c2.time);
+}
+
+function calculateDrivingTime(start, end) {
+  return new Date(end - start).getTime() / 1000;
+}
+
+function showResaults(WinnersInOrder) {
   let list = document.querySelector("#raceResaults > ul");
 
-  app.tracks.forEach((t,i) => {
+  WinnersInOrder.forEach((c, i) => {
     const newLi = document.createElement("li");
-    newLi.textContent = `Racer ${i+1} - מקום ${}, זמן:${(t.c.startTime - t.c.endTime).seconds()}שניות`;
+    if (i == 0) newLi.style.color = "gold";
+    newLi.textContent = `${c.carName}  -  מקום ${i + 1}, זמן:${c.time} שניות `;
+    list.append(newLi);
   });
+}
+
+function resetButtonVisible(show = true) {
+  const resetAppBtn = document.getElementById("resetRace");
+  resetAppBtn.style.visibility = show ? "visible" : "hidden";
 }
