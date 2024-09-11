@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards Site</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="darkMode.css" />
+  </head>
+  <body>
+    <header style="display: none">
+      <nav class="navbar">
+        <button id="changeModeBtn" class="navBtn">change mode</button>
+        <button id="logoutBtn" class="navBtn">Logout</button>
+      </nav>
+    </header>
+    <main id="loginPage" style="display: none">
+      <div class="roundedBlock" id="loginBlock">
+        <h1>Login</h1>
+        <form action="#" id="loginForm">
+          <div class="formField">
+            <label for="email"> Email </label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="formField">
+            <label for="password"> Password </label>
+            <input type="password" id="password" required />
+          </div>
+          <button class="button" type="submit">Login</button>
+        </form>
+      </div>
+    </main>
+    <main id="homePage" style="display: none">
+      <div class="roundedBlock" id="cardsDiv">
+        <h2>Your Cards</h2>
+        <div id="cardsList"></div>
+      </div>
+    </main>
+    <section class="modalSection" id="errorModalSection">
+      <div class="modalWrapper">
+        <div class="modal" id="errorModal">
+          <h1 class="modalTitle red">Error</h1>
+          <p class="modalMsg">invalid user name or password</p>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

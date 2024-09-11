@@ -1,0 +1,16 @@
+body.darkMode > header .navbar {
+  background-color: rgb(170, 168, 168);
+  color: white;
+  > button {
+    border-color: white;
+    color: white;
+  }
+  :hover {
+    border-color: black;
+    color: black;
+  }
+}
+
+body.darkMode > main {
+  background-color: rgb(0, 0, 0);
+}

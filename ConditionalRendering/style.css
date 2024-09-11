@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100vh; /*only in login page*/
+  flex-direction: column;
+  position: relative;
+}
+
+.mainLight {
+  background-color: #ffffff;
+}
+
+main {
+  height: 100%;
+}
+
+#loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.roundedBlock {
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 2px 2px 10px 1px rgb(134, 134, 134);
+  > h1 {
+    margin-bottom: 50px;
+    font-size: 50px;
+  }
+}
+.formField {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  gap: 10px;
+}
+
+form * {
+  font-size: 24px;
+}
+
+.formField > input {
+  font-size: 22px;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgb(206, 202, 202);
+}
+
+.formField > input:focus {
+  outline: none;
+  border: 2px solid rgba(105, 111, 106, 0.51);
+}
+
+#loginBlock {
+  width: 40%;
+}
+
+.button {
+  font-size: 22px;
+  padding: 6px 15px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 2px 2px 6px 1px rgb(184, 178, 178);
+  &:active {
+    box-shadow: 2px 2px 6px 1px transparent;
+  }
+}
+
+header {
+  height: 75px;
+  width: 100%;
+}
+.navbar {
+  box-shadow: 0px 1px 6px 2px rgb(144 131 131);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.navBtn {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: transparent;
+
+  &:hover {
+    border-color: transparent;
+    color: white;
+    background-color: rgba(193, 193, 193, 0.664);
+  }
+  &:active {
+    border-color: black;
+    color: black;
+  }
+}
+
+#homePage {
+  /*main*/
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#cardsDiv {
+  box-shadow: 2px 0px 8px 0px rgb(134, 134, 134);
+  text-align: start;
+  padding: 20px;
+  max-width: 80%;
+  max-height: 80%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  > h2 {
+    font-size: 32px;
+  }
+}
+
+#cardsList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.card {
+  width: 220px;
+  height: 300px;
+  border-radius: 12px;
+  margin: 15px 15px;
+  padding: 20px 15px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 3px 2px 5px 0px rgb(144 131 131);
+
+  > img {
+    width: 90%;
+    margin: 15px 20px;
+    border-radius: 3px;
+    border: 1px rgba(172, 165, 165, 0.264) solid;
+    border-style: inset;
+  }
+}
+
+.modalSection {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.462);
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  border: 9px solid black;
+  border-radius: 15px;
+  padding: 10px 25px;
+}
+
+.modalTitle {
+  font-size: 38px;
+}
+
+.modalMsg {
+  font-size: 28px;
+}
+.red {
+  color: red;
+}
