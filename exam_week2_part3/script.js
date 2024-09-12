@@ -68,9 +68,7 @@ function loadSoldiers() {
   table.append(headers);
 
   soldiers.forEach((s) => {
-    table.appendChild(
-      createSoliderElement.call(s, [removeSolider, editSolider])
-    );
+    table.appendChild(createSoliderElement.call(s, removeSolider, editSolider));
   });
 }
 
