@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>battalion force management</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="headerTitle">
+        <h1 id="headerTitle">BATTALION FORCE MANAGEMENT</h1>
+      </div>
+    </header>
+    <main id="MainPage">
+      <section class="flexCenter">
+        <form id="addSoliderForm">
+          <input type="text" name="fullName" placeholder="Full Name" required />
+          <input type="text" name="rank" placeholder="Rank" required />
+          <input type="text" name="position" placeholder="Position" required />
+          <input type="text" name="platoon" placeholder="Platoon" required />
+          <input
+            type="number"
+            name="missionTime"
+            placeholder="Mission time (seconds)"
+            required
+          />
+
+          <select
+            class="mrl-1"
+            name="status"
+            id="soldiersStatusListAdd"
+            required
+          ></select>
+          <button class="mrl-1" type="submit">Add Personal</button>
+        </form>
+      </section>
+      <section>
+        <div class="headerTitle">
+          <h1>FORCES OVERVIEW</h1>
+        </div>
+        <table id="soldiersTable">
+          <tr .tableHeader>
+            <th><button id="fullnameSortBtn">Full name ↓</button></th>
+            <th><h2>RANK</h2></th>
+            <th><h2>POSITION</h2></th>
+            <th><h2>PLATOON</h2></th>
+            <th><h2>STATUS</h2></th>
+            <th><h2>ACTIONS</h2></th>
+          </tr>
+          <tr .soliderInfoRow>
+            <td>full name</td>
+            <td>mosh rank</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>
+              <div class="buttonsWrapper">
+                <button>Remove</button>
+                <button>Mission</button>
+                <button>Edit</button>
+              </div>
+            </td>
+          </tr>
+          <tr .soliderInfoRow>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>
+              <div class="buttonsWrapper">
+                <button>Remove</button>
+                <button>Mission</button>
+                <button>Edit</button>
+              </div>
+            </td>
+          </tr>
+          <tr .soliderInfoRow>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>mosh lsdkjl</td>
+            <td>
+              <div class="buttonsWrapper">
+                <button>Remove</button>
+                <button>Mission</button>
+                <button>Edit</button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </main>
+    <main id="EditPage">
+      <section class="flexCenter">
+        <form id="addSoliderForm">
+          <input type="text" name="fullName" placeholder="Full Name" required />
+          <input type="text" name="rank" placeholder="Rank" required />
+          <input type="text" name="position" placeholder="Position" required />
+          <input type="text" name="platoon" placeholder="Platoon" required />
+
+          <select
+            class="mrl-1"
+            name="status"
+            id="soldiersStatusListEdit"
+            required
+          ></select>
+          <input
+            type="number"
+            name="missionTime"
+            placeholder="Mission time (seconds)"
+            required
+          />
+          <div class="flexCenterColumn">
+            <button type="submit">Save changes</button>
+            <button id="cancelEditBtn">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer></footer>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
