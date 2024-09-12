@@ -89,6 +89,7 @@ function editSolider(id) {
   const solider = soldiers.find((s) => s.id === id);
 
   if (!solider) return;
+
   showEditPage();
   loadSoliderDetails();
 }
