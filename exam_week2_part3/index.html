@@ -40,7 +40,7 @@
           <h1>FORCES OVERVIEW</h1>
         </div>
         <table id="soldiersTable">
-          <tr .tableHeader>
+          <tr>
             <th><button id="fullnameSortBtn">Full name ↓</button></th>
             <th><h2>RANK</h2></th>
             <th><h2>POSITION</h2></th>
@@ -53,12 +53,12 @@
     </main>
     <main id="EditPage">
       <section class="flexCenter">
-        <form id="addSoliderForm">
+        <form id="editSoliderForm">
           <input type="text" name="fullName" placeholder="Full Name" required />
           <input type="text" name="rank" placeholder="Rank" required />
           <input type="text" name="position" placeholder="Position" required />
           <input type="text" name="platoon" placeholder="Platoon" required />
-
+          <input name="id" type="password" value="" style="display: none" />
           <select
             class="mrl-1"
             name="status"
@@ -72,7 +72,7 @@
             required
           />
           <div class="flexCenterColumn">
-            <button type="submit">Save changes</button>
+            <button id="saveChangesBtn" type="submit">Save changes</button>
             <button id="cancelEditBtn">Cancel</button>
           </div>
         </form>

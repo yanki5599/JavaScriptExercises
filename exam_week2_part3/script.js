@@ -64,6 +64,7 @@ function loadSoldiers() {
   const table = document.getElementById("soldiersTable");
 
   const headers = table.firstElementChild;
+
   table.replaceChildren();
   table.append(headers);
 
@@ -74,7 +75,8 @@ function loadSoldiers() {
 
 function removeSolider(id) {
   const index = soldiers.findIndex((s) => s.id == id);
-  if (index) {
+
+  if (index != undefined) {
     soldiers.splice(index, 1);
     saveSoldiers();
     loadSoldiers();
@@ -99,6 +101,7 @@ function loadSoliderDetails(solider) {
   editForm["platoon"].value = solider.platoon;
   editForm["status"].value = solider.status;
   editForm["missionTime"].value = solider.missionTime;
+  editForm["id"].value = solider.id;
 }
 
 function setFormEL() {
@@ -107,6 +110,13 @@ function setFormEL() {
   addForm.addEventListener("submit", (event) => {
     event.preventDefault();
     addSolider(addForm);
+  });
+
+  const SortBtn = document.getElementById("fullnameSortBtn");
+
+  SortBtn.addEventListener("click", () => {
+    soldiers.sort((a, b) => a.fullName.localeCompare(b.fullName));
+    loadSoldiers();
   });
 }
 
@@ -130,9 +140,38 @@ function addSolider(form) {
   loadSoldiers();
 }
 
+function setEditFormEL() {
+  const editForm = document.getElementById("editSoliderForm");
+  const saveChangesBtn = document.getElementById("saveChangesBtn");
+
+  saveChangesBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    updateSolider(editForm);
+  });
+}
+
+function updateSolider(form) {
+  const newSolider = {
+    id: form["id"].value,
+    id: form["fullName"].value,
+    id: form["rank"].value,
+    id: form["position"].value,
+    id: form["platoon"].value,
+    id: form["status"].value,
+    id: form["missionTime"].value,
+    id: form["id"].value,
+  };
+
+  const index = soldiers.findIndex((s) => s.id == id);
+  if (index === undefined) return;
+
+  soldiers.splice(index, 1, newSolider);
+}
+
 window.onload = () => {
   fillStatusLists();
   setFormEL();
+  setEditFormEL();
   readSoldiersFromLoacl();
   loadSoldiers();
   showHomePage();
