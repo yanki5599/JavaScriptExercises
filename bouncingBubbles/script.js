@@ -59,25 +59,25 @@ function checkWalls() {
   const parentWidth = this.element.parentElement.clientWidth;
   const parentHeight = this.element.parentElement.clientHeight;
 
+  const zeroVector = [0, 0];
   let newStatus = [0, 0];
   const addVector = (list1, list2) => {
     list1[0] += list2[0];
     list1[1] += list2[1];
   };
 
-  if (+this.element.style.left.slice(0, -2) + this.WIDTH + 10 >= parentWidth)
+  if (+this.element.style.left.slice(0, -2) + this.WIDTH >= parentWidth)
     addVector(newStatus, rightWallTouched(this));
-
   if (+this.element.style.left.slice(0, -2) <= 0)
     addVector(newStatus, leftWallTouched(this));
-
   if (+this.element.style.top.slice(0, -2) <= 0)
     addVector(newStatus, topWallTouched(this));
-
-  if (+this.element.style.top.slice(0, -2) + this.HEIGHT + 10 >= parentHeight)
+  if (+this.element.style.top.slice(0, -2) + this.HEIGHT >= parentHeight)
     addVector(newStatus, BottomWallTouched(this));
 
-  if (JSON.stringify(newStatus) != "[0,0]") {
+  console.log(newStatus);
+
+  if (newStatus.toLocaleString() != zeroVector) {
     this.status = newStatus;
     this.element.style.backgroundColor = this.randomColor();
   }
