@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.colorBox {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background-color: black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: white;
+  }
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+}
+
+#timerSeconds {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
