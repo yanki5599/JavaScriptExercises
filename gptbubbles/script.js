@@ -1,7 +1,7 @@
 const container = document.getElementById("container");
 const bubbles = [];
-const numBubbles = 1;
-const bubbleSize = 200;
+const numBubbles = 20;
+const bubbleSize = 50;
 
 function createBubble() {
   const bubble = document.createElement("div");
